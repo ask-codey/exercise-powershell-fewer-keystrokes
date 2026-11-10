@@ -1,0 +1,18 @@
+Set-Location ~\terminal-practice\photo-book
+Get-ChildItem originals -Recurse -File | Measure-Object
+Get-ChildItem originals\2026\08-august\birthday
+Copy-Item originals\2026\08-august\birthday\IMG_0815.jpg edited\2026\08-august\birthday\IMG_0815-edit.jpg
+Copy-Item originals\2026\08-august\birthday\IMG_0817.jpg edited\2026\08-august\birthday\IMG_0817-edit.jpg
+Get-Content notes.txt
+Compress-Archive -Path edited\2026\08-august\birthday -DestinationPath backup\birthday-edit.zip
+Get-ChildItem backup
+Compress-Archive -Path edited\2026\08-august\birthday -DestinationPath backup\birthday-edits.zip -Force
+Remove-Item backup\birthday-edit.zip -WhatIf
+Remove-Item backup\birthday-edit.zip
+Get-ChildItem backup
+Set-Location ~
+Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
+Set-Location ~\terminal-practice\photo-book
+Copy-Item originals\2026\07-july\picnic\IMG_0712.jpg edited\2026\07-july\picnic\IMG_0712-edit.jpg
+Get-ChildItem edited -Recurse -File
+Get-Content book\page-order.txt
